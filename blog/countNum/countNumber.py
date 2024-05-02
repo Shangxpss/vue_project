@@ -1,20 +1,24 @@
 from collections import Counter
 from docx import Document
+import aspose.words as aw
 from pathlib import Path
 import os
-
+import re
 def cuntWord(name:str):
-    fileList = getpath(name)
+    # fileList = getpath(name)
     # assert os.path.isfile(fileList[0])
-    document = Document("new.docx")
-
-    paragraph = document.paragraphs
-    text:list[str] = []
-    for item in paragraph:
-        text.extend(item.text.lower().split(" "))
+    documentOld = aw.Document("a.docx")
+    # documentOld.save("a.docx")
+    # document = Document("a.docx")
+    # paragraph = document.paragraphs
+    # text:list[str] = []
+    # for item in paragraph:
+    #     sigleList = item.text.split(" ")
+    #     onlyWordList = [re.sub("[^a-zA-Z]","" ,subItem).lower() for subItem in sigleList]
+    #     text.extend(onlyWordList)
     
-    result = Counter(text)
-    print(result)
+    # result = Counter(text)
+    # print(result)
 
 def getpath(name:str):
     cwd = Path.cwd()
